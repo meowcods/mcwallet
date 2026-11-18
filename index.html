@@ -1,69 +1,39 @@
 <!doctype html>
 <html lang="ru">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#101010">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="mcwallet">
-  <link rel="manifest" href="manifest.webmanifest">
-  <link rel="apple-touch-icon" href="icon-192.png">
-  <link rel="stylesheet" href="style.css">
-  <title>mcwallet — demo</title>
-</head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0b0b0c"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="icon-192.png"><link rel="stylesheet" href="style.css">
+<title>mcwallet</title></head>
 <body>
-  <div class="app">
-    <header class="topbar">
-      <div class="brand"><span class="mark">◇</span><span>mcwallet</span></div>
-      <button class="avatar" aria-label="Профиль">M</button>
-    </header>
-
-    <main>
-      <section class="welcome">
-        <p class="eyebrow">SIGNATURE ACCOUNT · DEMO</p>
-        <h1>Добрый вечер</h1>
-        <p class="muted">Ваше финансовое пространство</p>
-      </section>
-
-      <section class="balance-card">
-        <div class="card-top"><span>ОБЩИЙ БАЛАНС</span><span class="pill">DEMO</span></div>
-        <div class="amount" id="balance">$12,480<span>.50</span></div>
-        <div class="change">↗ +2.4% <span>за этот месяц · учебные данные</span></div>
-        <div class="sparkline"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
-      </section>
-
-      <section class="quick-actions">
-        <button class="action" data-action="Перевод"><b>↗</b><span>Перевод</span></button>
-        <button class="action" data-action="Обмен"><b>⇄</b><span>Обмен</span></button>
-        <button class="action" data-action="Карты"><b>▣</b><span>Карты</span></button>
-        <button class="action" data-action="Кошельки"><b>◈</b><span>Кошельки</span></button>
-      </section>
-
-      <section class="section-head"><h2>Мои кошельки</h2><button class="text-btn" data-action="Все кошельки">Все</button></section>
-      <section class="wallet-list">
-        <article class="wallet"><div class="coin usd">$</div><div><strong>US Dollar</strong><small>USD · Основной</small></div><b>$8,250.50</b></article>
-        <article class="wallet"><div class="coin eur">€</div><div><strong>Euro</strong><small>EUR</small></div><b>€3,120.00</b></article>
-        <article class="wallet"><div class="coin gbp">£</div><div><strong>Pound Sterling</strong><small>GBP</small></div><b>£890.00</b></article>
-      </section>
-
-      <section class="section-head"><h2>Последние операции</h2><button class="text-btn" data-action="История">История</button></section>
-      <section class="transactions">
-        <article><div class="tx-icon">↙</div><div><strong>Пополнение демо-счёта</strong><small>Сегодня · 10:42</small></div><b class="positive">+$250.00</b></article>
-        <article><div class="tx-icon">◇</div><div><strong>Обмен валюты</strong><small>Вчера · 16:18</small></div><b>−$85.00</b></article>
-        <article><div class="tx-icon">▤</div><div><strong>Покупка · Design Store</strong><small>14 ноября · 12:05</small></div><b>−$32.50</b></article>
-      </section>
-      <p class="disclaimer">Это демонстрационный интерфейс. Балансы и операции вымышлены. Не вводите реальные банковские данные.</p>
-    </main>
-
-    <nav class="bottom-nav">
-      <button class="selected" data-action="Главная"><span>⌂</span>Главная</button>
-      <button data-action="Карты"><span>▣</span>Карты</button>
-      <button data-action="Аналитика"><span>▥</span>Аналитика</button>
-      <button data-action="Профиль"><span>◯</span>Профиль</button>
-    </nav>
+<div id="auth" class="auth-wrap">
+  <div class="auth-brand"><span class="logo">◇</span><span>mcwallet</span></div>
+  <div class="auth-card">
+    <div class="eyebrow">SIGNATURE EXPERIENCE</div>
+    <h1 id="authTitle">Создать аккаунт</h1>
+    <p class="muted" id="authSubtitle">Ваше личное финансовое пространство</p>
+    <form id="authForm">
+      <label id="nameLabel">Имя в профиле</label><input id="name" autocomplete="nickname" placeholder="Например, Alex" maxlength="24">
+      <label>Логин</label><input id="username" autocomplete="username" placeholder="Придумайте логин" required minlength="3" maxlength="24">
+      <label>Демо-пароль</label><input id="password" type="password" autocomplete="new-password" placeholder="Придумайте пароль" required minlength="4">
+      <button class="primary wide" id="authSubmit">Создать демо-аккаунт</button>
+    </form>
+    <p class="auth-switch" id="authSwitch">Уже есть аккаунт? <button type="button" class="link" id="switchAuth">Войти</button></p>
+    <p class="tiny-note">Только локальная демонстрация. Не используйте настоящие пароли или личные данные. Демо-профиль хранится на этом устройстве.</p>
   </div>
-  <div class="toast" id="toast" role="status"></div>
-  <script src="app.js"></script>
-</body>
-</html>
+</div>
+
+<div id="app" class="app hidden">
+<header class="topbar"><div class="brand"><span class="logo">◇</span><span>mcwallet</span></div><button class="avatar" id="profileShortcut">M</button></header>
+<main id="screen"></main>
+<nav class="bottom-nav">
+<button data-page="home" class="selected"><span>⌂</span>Главная</button>
+<button data-page="cards"><span>▣</span>Карты</button>
+<button data-page="wallets"><span>◈</span>Кошельки</button>
+<button data-page="activity"><span>▤</span>Операции</button>
+<button data-page="profile"><span>◯</span>Профиль</button>
+</nav>
+</div>
+<div class="toast" id="toast"></div>
+<script src="app.js"></script>
+</body></html>
